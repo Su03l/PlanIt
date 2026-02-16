@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 
 class TaskCommentController extends Controller
 {
+    // this for return response
     use HttpResponses;
 
+    // this for comment service
     protected $commentService;
 
     public function __construct(CommentService $commentService)
