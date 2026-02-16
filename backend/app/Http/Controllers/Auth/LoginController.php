@@ -9,8 +9,10 @@ use App\Traits\HttpResponses;
 
 class LoginController extends Controller
 {
+    // this for return response
     use HttpResponses;
 
+    // this for login request and return response
     public function __invoke(LoginRequest $request, AuthService $authService)
     {
         $data = $authService->login($request->validated());
