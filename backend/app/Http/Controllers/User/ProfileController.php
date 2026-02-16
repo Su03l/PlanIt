@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    // this for http responses
     use HttpResponses;
 
     protected UserService $userService;
