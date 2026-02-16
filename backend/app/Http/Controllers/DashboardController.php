@@ -10,10 +10,13 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    // this for http responses
     use HttpResponses;
 
+    // this for stats service
     protected StatsService $statsService;
 
+    // this for stats service constructor
     public function __construct(StatsService $statsService)
     {
         $this->statsService = $statsService;
