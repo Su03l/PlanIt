@@ -22,6 +22,7 @@ class ChangePasswordController extends Controller
         $this->userService = $userService;
     }
 
+    // this for change password request and return response
     public function __invoke(ChangePasswordRequest $request)
     {
         $this->userService->changePassword(
