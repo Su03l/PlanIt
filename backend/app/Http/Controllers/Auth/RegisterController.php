@@ -13,6 +13,7 @@ class RegisterController extends Controller
     // this for return response
     use HttpResponses;
 
+    // this for register request and return response
     public function __invoke(RegisterRequest $request, AuthService $authService)
     {
         $data = $authService->register($request->validated());
