@@ -14,6 +14,7 @@ class ProfileController extends Controller
     // this for http responses
     use HttpResponses;
 
+    // this for user service 
     protected UserService $userService;
 
     public function __construct(UserService $userService)
