@@ -32,6 +32,7 @@ class ProfileController extends Controller
         );
     }
 
+    // this for update profile request and return response
     public function update(UpdateProfileRequest $request)
     {
         $user = $this->userService->updateProfile(
