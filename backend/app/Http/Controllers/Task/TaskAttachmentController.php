@@ -18,8 +18,7 @@ class TaskAttachmentController extends Controller
             'file' => 'required|file|max:10240', // حد أقصى 10MB
         ]);
 
-        // TODO: Add authorization check here
-        // $this->authorize('view', $task);
+        $this->authorize('view', $task);
 
         $attachment = $service->upload($task, $request->file('file'), auth()->id());
 
