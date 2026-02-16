@@ -16,6 +16,7 @@ class ChangePasswordController extends Controller
     // this for user service 
     protected UserService $userService;
 
+    // this for user service constructor
     public function __construct(UserService $userService)
     {
         $this->userService = $userService;
