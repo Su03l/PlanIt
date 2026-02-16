@@ -11,15 +11,19 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    // this for http responses
     use HttpResponses;
 
+    // this for task service
     protected TaskService $taskService;
 
+    // this for task service constructor
     public function __construct(TaskService $taskService)
     {
         $this->taskService = $taskService;
     }
 
+    // this for show all tasks request and return response
     public function index(Request $request, Group $group)
     {
         $this->authorize('view', $group);
@@ -30,10 +34,10 @@ class TaskController extends Controller
         return $this->success(TaskResource::collection($tasks));
     }
 
+    // this for create task request and return response
     public function store(StoreTaskRequest $request, Group $group)
     {
-        // البوليسي: هل يحق له إضافة مهمة؟ (فقط Admin و Moderator)
-        $this->authorize('addMember', $group); // سنستخدم نفس صلاحية الإدارة حالياً
+        $this->authorize('addMember', $group); 
 
         $data = $request->validated();
         $data['created_by'] = auth()->id();
