@@ -23,6 +23,7 @@ class ProfileController extends Controller
         $this->userService = $userService;
     }
 
+    // this for show profile request and return response
     public function show(Request $request)
     {
         return $this->success(
