@@ -27,8 +27,7 @@ class TaskCommentController extends Controller
     {
         $request->validate(['body' => 'required|string|max:2000']);
 
-        // TODO: Add authorization check here (e.g., user must be member of the group)
-        // $this->authorize('view', $task);
+        $this->authorize('view', $task);
 
         $comment = $this->commentService->addComment(
             $task,
