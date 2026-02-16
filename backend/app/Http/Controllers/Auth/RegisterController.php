@@ -10,6 +10,7 @@ use App\Traits\HttpResponses;
 
 class RegisterController extends Controller
 {
+    // this for return response
     use HttpResponses;
 
     public function __invoke(RegisterRequest $request, AuthService $authService)
