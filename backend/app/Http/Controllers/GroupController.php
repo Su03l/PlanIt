@@ -14,15 +14,19 @@ use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
+    // this for http responses
     use HttpResponses;
 
+    // this for group service
     protected GroupService $groupService;
 
+    // this for group service constructor
     public function __construct(GroupService $groupService)
     {
         $this->groupService = $groupService;
     }
 
+    // this for show all groups request and return response
     public function index(Request $request)
     {
         // Pagination added for scalability
@@ -31,6 +35,7 @@ class GroupController extends Controller
         return GroupResource::collection($groups);
     }
 
+    // this for store group request and return response
     public function store(StoreGroupRequest $request)
     {
         $group = $this->groupService->createGroup(
@@ -45,6 +50,7 @@ class GroupController extends Controller
         );
     }
 
+    // this for show group request and return response
     public function show(Group $group)
     {
         $this->authorize('view', $group);
@@ -55,6 +61,7 @@ class GroupController extends Controller
         );
     }
 
+    // this for update group request and return response
     public function update(UpdateGroupRequest $request, Group $group)
     {
         $this->authorize('update', $group);
@@ -70,6 +77,7 @@ class GroupController extends Controller
         );
     }
 
+    // this for delete group request and return response
     public function destroy(Group $group)
     {
         $this->authorize('delete', $group);
@@ -82,6 +90,7 @@ class GroupController extends Controller
         );
     }
 
+    // this for show group members request and return response
     public function members(Group $group)
     {
         $this->authorize('view', $group);
@@ -92,6 +101,7 @@ class GroupController extends Controller
         return UserResource::collection($members);
     }
 
+    // this for add group member request and return response
     public function addMember(AddMemberRequest $request, Group $group)
     {
         $this->authorize('addMember', $group);
