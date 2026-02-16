@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class ChangePasswordController extends Controller
 {
+    // this for http responses
     use HttpResponses;
 
     protected UserService $userService;
