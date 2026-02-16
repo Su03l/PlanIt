@@ -22,6 +22,7 @@ class TaskCommentController extends Controller
         $this->commentService = $commentService;
     }
 
+    // this for comment request and return response
     public function __invoke(Request $request, Task $task)
     {
         $request->validate(['body' => 'required|string|max:2000']);
